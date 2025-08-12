@@ -6,8 +6,7 @@ from pyrogram import Client, filters, idle
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from yt_dlp import YoutubeDL
 from pytgcalls import PyTgCalls
-from pytgcalls.types.input_stream import InputAudioStream
-from pytgcalls.types.input_stream.quality import HighQualityAudio
+from pytgcalls.types import AudioPiped
 
 # ---------------- CONFIG ---------------- #
 API_ID = 23212132
@@ -50,6 +49,7 @@ async def play_music(chat_id):
     global is_playing
     if not queue:
         is_playing = False
+        await call.leave_group_call(chat_id)
         return
 
     is_playing = True
@@ -59,7 +59,7 @@ async def play_music(chat_id):
         file_path, title = await download_yt_audio(url)
         await call.join_group_call(
             chat_id,
-            InputAudioStream(file_path, HighQualityAudio())
+            AudioPiped(file_path)
         )
         await msg.reply(f"🎶 Now Playing: **{title}**", disable_web_page_preview=True)
     except Exception as e:
