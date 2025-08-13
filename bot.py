@@ -6,7 +6,7 @@ from pyrogram.types import Message
 from pyrogram.errors import PeerIdInvalid
 from pytgcalls import PyTgCalls
 from pytgcalls.types import Update
-from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
+from pytgcalls.types import AudioPiped, AudioVideoPiped
 from pytgcalls.types.input_stream.quality import HighQualityAudio, HighQualityVideo
 
 # ---------------- CONFIG ---------------- #
