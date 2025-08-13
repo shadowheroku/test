@@ -1,23 +1,3 @@
-import asyncio
-import re
-from collections import defaultdict
-from typing import Dict, List, Tuple
-
-from pyrogram import Client, filters, idle
-from pyrogram.types import Message
-from yt_dlp import YoutubeDL
-
-from pytgcalls import PyTgCalls
-
-from pytgcalls.exceptions import PytgcallsError
-
-# ---------------- CONFIG ---------------- #
-API_ID = 23212132
-API_HASH = "1c17efa86bdef8f806ed70e81b473c20"
-BOT_TOKEN = "8013665655:AAFx7scUcoYtCEktmIfiZaqcqUPLUYKQnQ8"
-SESSION_STRING = "BQGvJ_0Adt6lmVaTljo96G9YV0xaOi0O26V2utMXtqO1d9cySnNMh1KCQh2oqT2rxMwDjTj274JF5QDUOF1wO21nH52TvrOuqDvnuZbiOsKM7o4XeTS5CLmwJFAP0IKDvAvEgCnfVGLBGuaOJEijZNaP4nhFvtMP_sMLYjLATOsJHZLEkdz4PkJyfQZCMTV6MSR1D7BFnythV1VTBRA7qIjqYenmEZzGVHXGy4DaetN-BbDwJZmf2QIIZx90Q2-zvFl_z7-2srBWXcOYYDT5pZ1UkwtX71c1hChhmuFJHhLejZz0PWoTUyVr35GRto9J5QU4D0xGvdTaw8qi7m7qe5Gk4IZkjQAAAAHdw02OAA"
-
-# ---------------- CLIENTS ---------------- #
 import os
 import asyncio
 import yt_dlp
@@ -28,6 +8,15 @@ from pytgcalls import PyTgCalls
 from pytgcalls.types import Update
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 from pytgcalls.types.input_stream.quality import HighQualityAudio, HighQualityVideo
+
+# ---------------- CONFIG ---------------- #
+API_ID = 23212132
+API_HASH = "1c17efa86bdef8f806ed70e81b473c20"
+BOT_TOKEN = "8013665655:AAFx7scUcoYtCEktmIfiZaqcqUPLUYKQnQ8"
+SESSION_STRING = "BQGvJ_0Adt6lmVaTljo96G9YV0xaOi0O26V2utMXtqO1d9cySnNMh1KCQh2oqT2rxMwDjTj274JF5QDUOF1wO21nH52TvrOuqDvnuZbiOsKM7o4XeTS5CLmwJFAP0IKDvAvEgCnfVGLBGuaOJEijZNaP4nhFvtMP_sMLYjLATOsJHZLEkdz4PkJyfQZCMTV6MSR1D7BFnythV1VTBRA7qIjqYenmEZzGVHXGy4DaetN-BbDwJZmf2QIIZx90Q2-zvFl_z7-2srBWXcOYYDT5pZ1UkwtX71c1hChhmuFJHhLejZz0PWoTUyVr35GRto9J5QU4D0xGvdTaw8qi7m7qe5Gk4IZkjQAAAAHdw02OAA"
+
+# ---------------- CLIENTS ---------------- #
+
 
 # Configuration  # Replace with your user session string
 YOUTUBE_COOKIE = """ # Netscape HTTP Cookie File
