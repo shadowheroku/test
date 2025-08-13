@@ -8,7 +8,7 @@ from pyrogram.types import Message
 from yt_dlp import YoutubeDL
 
 from pytgcalls import PyTgCalls
-from pytgcalls.types.input_stream import AudioPiped
+
 from pytgcalls.exceptions import PytgcallsError
 
 # ---------------- CONFIG ---------------- #
